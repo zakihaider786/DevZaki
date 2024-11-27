@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTechi - Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* AI Assistant Styling */
+        #assistant-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        #assistant-icon {
+            background-color: #ffbd06;
+            border-radius: 10%;
+            padding: 0px;
+            cursor: pointer;
+        }
+
+        #assistant-icon img {
+            width: 55px;
+            height: auto;
+        }
+
+        #assistant-menu {
+            display: none;
+            position: absolute;
+            bottom: 60px; /* Adjusted to appear above the icon */
+            right: 0;
+            background-color: #fad1d1;
+            border-radius: 8px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 200px;
+        }
+
+        #assistant-menu h3 {
+            font-size: 16px;
+            color: #0d0d0e;
+            margin-bottom: 10px;
+        }
+
+        #assistant-menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #assistant-menu ul li {
+            margin-bottom: 10px;
+        }
+
+        #assistant-menu ul li a {
+            text-decoration: none;
+            color: #141414;
+            font-weight: bold;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        #assistant-menu ul li a:hover {
+            color: #f5d107;
+        }
+
+        /* Show the assistant menu when the icon is clicked */
+        #assistant-container.show-menu #assistant-menu {
+            display: block;
+        }
+        /* Social Media Slider Styling */
+        #social-media-slider {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px; /* Space between icons */
+            flex-direction: row;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%); /* Hidden by default */
+            overflow-x: auto; /* Enable horizontal scrolling if needed */
+        }
+
+        #social-media-slider.show-slider {
+            transform: translateX(0); /* Slide in */
+        }
+
+        #social-media-slider a {
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #social-media-slider a:hover {
+            background-color: #ffbd06;
+            color: white;
+        }
+
+        /* Slider Button Styling */
+        .slider-toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ffbd06;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-toggle-btn:hover {
+            background-color: #f5d107;
+        }
+    </style>
+</head>
+<body>
+
+ <!-- Social Media Slider -->
+<div id="social-media-slider">
+    <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
+    <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
+    <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+    <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
+    <a href="https://youtube.com" target="_blank" class="fab fa-youtube"></a>
+</div>
+
+<!-- Slider Toggle Button -->
+<div class="slider-toggle-btn" onclick="toggleSlider()">☰</div>   
+
+<header>
+    <nav>
+        <ul>
+            <li><button class="title-btn">DevTechi</button></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li class="dropdown">
+                <a href="#">DevOps</a>
+                <div class="dropdown-content">
+                    <a href="#">Automation Tools</a>
+                    <a href="#">New Technology</a>
+                    <a href="#">Security</a>
+                    <a href="#">DevOps Top Questions</a>
+                    <a href="#">Interview Questions</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Cloud</a>
+                <div class="dropdown-content">
+                    <a href="#">Private Cloud</a>
+                    <a href="#">Public Cloud</a>
+                    <a href="#">Cloud Top Companies</a>
+                    <a href="#">Cloud-Based Projects</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Internship Sites</a>
+                <div class="dropdown-content">
+                    <a href="#">Geeks of Geeks</a>
+                    <a href="#">Internshala</a>
+                    <a href="#">Udemy</a>
+                    <a href="#">Unacademy</a>
+                </div>
+            </li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><button id="search-btn" onclick="toggleSearchBar()">🔍</button></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Social Media Slider -->
+<div id="social-media-slider">
+    <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
+    <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
+    <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+    <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
+    <a href="https://youtube.com" target="_blank" class="fab fa-youtube"></a>
+</div>
+
+<div id="search-bar-container" class="hidden">
+    <input type="text" id="search-bar" placeholder="Search...">
+</div>
+<div class="post-container">
+    <!-- Post Card 1 -->
+    <div class="post-card">
+        <img src="image1.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 1</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post1.html" class="read-more-btn">Read More</a>
+    </div>
+    <!-- Post Card 2 -->
+    <div class="post-card">
+        <img src="image2.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 2</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post2.html" class="read-more-btn">Read More</a>
+    </div>
+    <!-- Post Card 3 -->
+    <div class="post-card">
+        <img src="image3.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 3</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post3.html" class="read-more-btn">Read More</a>
+    </div>
+    <!-- Post Card 4 -->
+    <div class="post-card">
+        <img src="image4.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 4</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post4.html" class="read-more-btn">Read More</a>
+    </div>
+    <!-- Post Card 5 -->
+    <div class="post-card">
+        <img src="image5.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 5</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post5.html" class="read-more-btn">Read More</a>
+    </div>
+    <!-- Post Card 6 -->
+    <div class="post-card">
+        <img src="image6.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 6</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post6.html" class="read-more-btn">Read More</a>
+    </div>
+    <!-- Post Card 7 -->
+    <div class="post-card">
+        <img src="image7.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 7</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post7.html" class="read-more-btn">Read More</a>
+    </div>
+    <!-- Post Card 8 -->
+    <div class="post-card">
+        <img src="image8.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 8</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post8.html" class="read-more-btn">Read More</a>
+    </div>
+    <!-- Post Card 9 -->
+    <div class="post-card">
+        <img src="image9.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 9</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post9.html" class="read-more-btn">Read More</a>
+    </div>
+    <!-- Post Card 10 -->
+    <div class="post-card">
+        <img src="image10.jpg" alt="Post Image">
+        <h3 class="post-title">Post Title 10</h3>
+        <p class="post-description">Post description goes here...</p>
+        <a href="post10.html" class="read-more-btn">Read More</a>
+    </div>
+</div>
+
+<!-- Load More Button -->
+<div class="load-more-container">
+    <button id="load-more-btn" class="load-more-btn">Load More</button>
+</div>
+<footer>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+
+        <p>&copy; 2024 DevTechi. All Rights Reserved.</p>
+    </div>
+</footer>
+<!-- Coffee Assistant -->
+<div id="assistant-container">
+    <div id="assistant-icon" onclick="toggleAssistantMenu()">
+        <img src="ai.png" alt="Coffee with Techi" />
+    </div>
+    <div id="assistant-menu">
+        
+        <ul>
+            <li><a href="#">DevOps Help</a></li>
+            <li><a href="#">Cloud Guidance</a></li>
+            <li><a href="#">Internship Opportunities</a></li>
+            <li><a href="#">Technical Blogs</a></li>
+            <li><a href="#">Support Us</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function toggleSearchBar() {
+        document.getElementById('search-bar-container').classList.toggle('hidden');
+    }
+
+    function toggleAssistantMenu() {
+        document.getElementById('assistant-container').classList.toggle('show-menu');
+    }
+    function toggleSlider() {
+        document.getElementById('social-media-slider').classList.toggle('show-slider');
+    }
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

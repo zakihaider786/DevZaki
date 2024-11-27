@@ -1,0 +1,332 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header Styling */
+header {
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Styling */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;  /* Centering the navigation items */
+    align-items: center;
+}
+
+nav li {
+    position: relative;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #070707;
+    padding: 10px 20px;
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+/* Hover Effect for Menu Item */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #f1c40f;  /* Yellow color for the underline */
+    left: 50%;
+    bottom: 0;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Hover effect on text color */
+nav ul li a:hover {
+    color: #f1c40f;  /* Yellow color when hovered */
+}
+
+/* Neumorphism Button Design for Title */
+nav .title-btn {
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    padding: 12px 24px;
+    background-color: #012352;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s ease;
+    border-radius: 12px;
+    box-shadow: 8px 8px 15px #d1d9e6, -8px -8px 15px #ffffff;
+    outline: none;
+}
+
+/* Hover Effect for Title Button */
+nav .title-btn:hover {
+    background-color: #0a4477;
+    transform: scale(1.05);
+}
+
+/* Focus Effect */
+nav .title-btn:focus {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Search Bar Styling */
+#search-bar-container {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+#search-bar {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 200px;
+    border: 1px solid #ccc;
+}
+
+#search-btn {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 12px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Premium Post Cards Styling */
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px;
+}
+/* Individual Post Card */
+.post-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 18%; /* 3 posts per row */
+    transition: transform 0.3s, box-shadow 0.3s ease, opacity 0.3s ease;
+    margin: 5px; /* Space between cards */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Post Image Styling */
+.post-card img {
+    width: 100%;
+    height: 200px; /* Image height */
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Post Title */
+.post-card .post-title {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0;
+    color: #012352;
+}
+
+/* Post Description */
+.post-card .post-description {
+    font-size: 14px;
+    padding: 0 0 10px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Read More Button */
+.post-card .read-more-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #012352;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin: 10px 0;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.post-card .read-more-btn:hover {
+    background-color: #0a4477;
+    transform: scale(1.05);
+}
+
+/* Flex container for posts */
+.post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Load More Button */
+.load-more-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.load-more-btn {
+    padding: 10px 20px;
+    background-color: #012352;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.load-more-btn:hover {
+    background-color: #0a4477;
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 1024px) {
+    .post-card {
+        width: 45%; /* 2 cards per row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .post-card {
+        width: 100%; /* 1 card per row on small screens */
+    }
+}
+
+/* Footer Styling */
+footer {
+    width: 100%;
+    background-color: #020202;
+    color: #fffefe;
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.footer-logo img {
+    height: 60px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.footer-content {
+    margin-top: 10px;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #fffcfc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #fcd707;
+}
+
+/* Footer Link Hover Effect */
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #050505;
+    text-decoration: underline;
+}
+/* Styling for Social Media Icons */
+.social {
+    margin-top: 20px;
+}
+
+.social a {
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social a:hover {
+    color: #5029bc; /* You can change this to your preferred hover color */
+}
+
+/* Optional: Add FontAwesome for icons (ensure to include FontAwesome in the head) */
+.social i {
+    margin-right: 8px; /* Space between icon and text */
+}
