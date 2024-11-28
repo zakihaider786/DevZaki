@@ -16,7 +16,7 @@
         }
 
         #assistant-icon {
-            background-color: #ffbd06;
+            background-color: #ffbd0600;
             border-radius: 10%;
             padding: 0px;
             cursor: pointer;
@@ -70,76 +70,17 @@
         #assistant-container.show-menu #assistant-menu {
             display: block;
         }
-        /* Social Media Slider Styling */
-        #social-media-slider {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px; /* Space between icons */
-            flex-direction: row;
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%); /* Hidden by default */
-            overflow-x: auto; /* Enable horizontal scrolling if needed */
-        }
-
-        #social-media-slider.show-slider {
-            transform: translateX(0); /* Slide in */
-        }
-
-        #social-media-slider a {
-            font-size: 30px;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 50%;
-            background-color: #333;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        #social-media-slider a:hover {
-            background-color: #ffbd06;
-            color: white;
-        }
-
-        /* Slider Button Styling */
-        .slider-toggle-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #ffbd06;
-            border-radius: 50%;
-            padding: 15px;
-            cursor: pointer;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .slider-toggle-btn:hover {
-            background-color: #f5d107;
-        }
+    
     </style>
 </head>
-<body>
-
- <!-- Social Media Slider -->
-<div id="social-media-slider">
-    <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
-    <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
-    <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
-    <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
-    <a href="https://youtube.com" target="_blank" class="fab fa-youtube"></a>
-</div>
-
-<!-- Slider Toggle Button -->
-<div class="slider-toggle-btn" onclick="toggleSlider()">☰</div>   
+<body> 
 
 <header>
     <nav>
         <ul>
             <li><button class="title-btn">DevTechi</button></li>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li class="dropdown">
                 <a href="#">DevOps</a>
                 <div class="dropdown-content">
@@ -173,15 +114,6 @@
         </ul>
     </nav>
 </header>
-
-<!-- Social Media Slider -->
-<div id="social-media-slider">
-    <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
-    <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
-    <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
-    <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
-    <a href="https://youtube.com" target="_blank" class="fab fa-youtube"></a>
-</div>
 
 <div id="search-bar-container" class="hidden">
     <input type="text" id="search-bar" placeholder="Search...">
@@ -263,19 +195,51 @@
 <div class="load-more-container">
     <button id="load-more-btn" class="load-more-btn">Load More</button>
 </div>
-<footer>
+<footer class="footer">
+    <div class="footer-container">
+      <!-- Logo Section -->
+      <div class="footer-column footer-logo">
+        <img src="logo.png" alt="Downloadnotes Logo" class="footer-logo-img" />
+        <p>Your trusted partner for premium educational resources.</p>
+      </div>
+  
+      <!-- About Section -->
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <p>
+          Welcome to DevTechi, your trusted source for premium educational resources. We aim to make learning accessible and effective for everyone.
+        </p>
+      </div>
+  
+      <!-- Quick Links Section -->
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </div>
+  
+      <!-- Social Media Section -->
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-
-        <div class="footer-links">
-            <a href="#">About Us</a>
-            <a href="contactus.html">Contact Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-        </div>
-
-        <p>&copy; 2024 DevTechi. All Rights Reserved.</p>
+      </div>
     </div>
-</footer>
+    <div class="footer-bottom">
+      <p>&copy; 2024 DevTechi. All Rights Reserved | Designed with ❤️ by DevTechi Team.</p>
+    </div>
+  </footer>
+   
 <!-- Coffee Assistant -->
 <div id="assistant-container">
     <div id="assistant-icon" onclick="toggleAssistantMenu()">
