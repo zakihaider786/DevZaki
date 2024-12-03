@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Platforms</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: #007BFF;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007BFF;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #0056b3;
+    }
+
+    /* Header */
+    .header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .header p {
+      margin: 5px 0;
+      font-size: 1rem;
+    }
+
+    /* Section */
+    .platforms-section {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 10px;
+    }
+
+    .platform-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+
+    .platform-card img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .platform-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .platform-content h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .platform-content p {
+      margin: 10px 0;
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    .btn-apply {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .btn-apply:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #f8d210;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .platform-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .platform-content {
+        padding: 15px;
+      }
+
+      .platform-content h2 {
+        font-size: 1.3rem;
+      }
+
+      .platform-content p {
+        font-size: 0.85rem;
+      }
+
+      .btn-apply {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+
+      .header p {
+        font-size: 0.9rem;
+      }
+
+      .platform-content h2 {
+        font-size: 1.2rem;
+      }
+
+      .btn-apply {
+        font-size: 0.75rem;
+        padding: 7px 12px;
+      }
+    }
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .footer-column {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .footer-column h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        border-bottom: 2px solid #f5d107;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .footer-column p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 5px;
+    }
+
+    .footer-column ul li a {
+        text-decoration: none;
+        color: #f5d107;
+    }
+
+    .footer-column ul li a:hover {
+        color: #fff;
+    }
+
+    .social-links a {
+        text-decoration: none;
+        color: #f5d107;
+        margin: 5px 0;
+        display: inline-block;
+    }
+
+    .social-links a:hover {
+        color: #fff;
+    }
+
+    .social-links i {
+        margin-right: 8px;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+        border-top: 1px solid #555;
+        padding-top: 10px;
+    }
+
+    .footer-bottom a {
+        color: #f5d107;
+        text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+        color: #fff;
+    }
+
+    /* Responsive Footer */
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-column {
+            text-align: center;
+        }
+    }
+    @media (max-width: 480px) {
+            .post-card {
+                width: calc(100% - 20px);
+            }
+
+            footer .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Top Internship Platforms</h1>
+    <p>Your guide to landing your dream internship</p>
+  </header>
+
+  <section class="platforms-section">
+    <!-- GeeksforGeeks -->
+    <div class="platform-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg" alt="GeeksforGeeks Logo">
+      <div class="platform-content">
+        <h2>GeeksforGeeks</h2>
+        <p>GeeksforGeeks offers a wide range of internship opportunities in programming, web development, data science, and more. It's perfect for aspiring developers who want to showcase their skills and get industry-ready.</p>
+        <p><strong>How to Apply:</strong> Visit their internships section, choose a relevant program, and submit your resume and assignments.</p>
+        <a href="https://www.geeksforgeeks.org/" target="_blank" class="btn-apply">Visit GeeksforGeeks</a>
+      </div>
+    </div>
+
+    <!-- Internshala -->
+    <div class="platform-card">
+      <img src="https://internshala.com/favicon.ico" alt="Internshala Logo">
+      <div class="platform-content">
+        <h2>Internshala</h2>
+        <p>Internshala is one of the largest platforms for finding internships across various domains like marketing, content writing, programming, and more. It’s beginner-friendly and provides training programs as well.</p>
+        <p><strong>How to Apply:</strong> Create a profile, explore opportunities, and apply directly to companies.</p>
+        <a href="https://internshala.com/" target="_blank" class="btn-apply">Visit Internshala</a>
+      </div>
+    </div>
+
+    <!-- Udemy -->
+    <div class="platform-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg" alt="Udemy Logo">
+      <div class="platform-content">
+        <h2>Udemy</h2>
+        <p>While Udemy is known for its online courses, it also provides opportunities for learning job-specific skills that can help secure internships. Completing Udemy certifications boosts your resume for internships.</p>
+        <p><strong>How to Use:</strong> Enroll in skill-specific courses, gain certification, and apply for internships using your enhanced skills.</p>
+        <a href="https://www.udemy.com/" target="_blank" class="btn-apply">Visit Udemy</a>
+      </div>
+    </div>
+
+    <!-- Unacademy -->
+    <div class="platform-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Unacademy_Logo.svg" alt="Unacademy Logo">
+      <div class="platform-content">
+        <h2>Unacademy</h2>
+        <p>Unacademy focuses on education and preparation for competitive exams, but it also has opportunities for internships related to content creation, video editing, and tutoring.</p>
+        <p><strong>How to Apply:</strong> Check their careers section for internship openings or explore freelancing roles they offer.</p>
+        <a href="https://unacademy.com/" target="_blank" class="btn-apply">Visit Unacademy</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Logo Section -->
+      <div class="footer-column footer-logo">
+        <img src="logo.png" alt="Downloadnotes Logo" class="footer-logo-img" />
+        <p>Your trusted partner for premium educational resources.</p>
+      </div>
+  
+      <!-- About Section -->
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <p>
+          Welcome to DevTechi, your trusted source for premium educational resources. We aim to make learning accessible and effective for everyone.
+        </p>
+      </div>
+    
+        <!-- Quick Links Section -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+    
+        <!-- Social Media Section -->
+        <div class="footer-column">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 DevTechi. All Rights Reserved | Designed with ❤️ by DevTechi Team.</p>
+      </div>
+    </footer>
+</body>
+</html>
