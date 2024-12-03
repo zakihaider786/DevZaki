@@ -7,357 +7,307 @@
     <title>Contact Us - DevTechi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <style>
-        /* Import Google Font */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-    
-    /* Global styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a202c;
+            color: #f7fafc;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensure the body takes the full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack content vertically */
+        }
 
-    /* Page styling */
-    body {
-      min-height: 100vh;
-      width: 100%;
-      background: #f4f4f9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
+        .contact-form-container {
+            background-color: #4a5568;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
 
-    /* Container for the form */
-    .container {
-      width: 50%; /* Form width set to 50% */
-      background: #fff;
-      border-radius: 6px;
-      padding: 30px 60px 40px 40px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-    }
+        .contact-form-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #edf2f7;
+            text-align: center;
+        }
 
-    /* Layout for form content */
-    .content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: row;
-    }
+        .contact-form-container p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #cbd5e0;
+        }
 
-    /* Left-side (Contact Details) */
-    .left-side {
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 15px;
-      position: relative;
-    }
+        .contact-form-container label {
+            color: #cbd5e0;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
 
-    .left-side::before {
-      content: '';
-      position: absolute;
-      height: 70%;
-      width: 2px;
-      right: -15px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #afafb6;
-    }
+        .contact-form-container input,
+        .contact-form-container textarea,
+        .contact-form-container button {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #2d3748;
+            border-radius: 6px;
+            background-color: #edf2f7;
+            color: #2d3748;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            outline: none;
+        }
 
-    /* Individual contact detail styles */
-    .details {
-      margin: 14px;
-      text-align: center;
-    }
+        .contact-form-container input:focus,
+        .contact-form-container textarea:focus {
+            border-color: #3182ce;
+        }
 
-    .details i {
-      font-size: 30px;
-      color: #3e2093;
-      margin-bottom: 10px;
-    }
+        .contact-form-container button {
+            background-color: #3182ce;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
 
-    .details .topic {
-      font-size: 18px;
-      font-weight: 500;
-    }
+        .contact-form-container button:hover {
+            background-color: #2b6cb0;
+        }
 
-    .details .text-one,
-    .details .text-two {
-      font-size: 14px;
-      color: #afafb6;
-    }
+        .contact-form-container button:active {
+            background-color: #2b6cb0;
+            transform: scale(0.98);
+        }
 
-    /* Right-side (Form Section) */
-    .right-side {
-      width: 65%;
-      margin-left: 50px;
-    }
+        .contact-form-container .result {
+            text-align: center;
+            color: #38a169;
+            font-size: 1rem;
+            display: none;
+        }
 
-    .topic-text {
-      font-size: 23px;
-      font-weight: 600;
-      color: #3e2093;
-    }
-
-    .right-side p {
-      margin: 10px 0 20px;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .input-box {
-      height: 50px;
-      width: 100%;
-      margin: 12px 0;
-    }
-
-    .input-box input,
-    .input-box textarea {
-      width: 100%;
-      height: 100%;
-      border: none;
-      outline: none;
-      font-size: 16px;
-      background: #F0F1F8;
-      border-radius: 6px;
-      padding: 0 15px;
-    }
-
-    .message-box {
-      min-height: 110px;
-    }
-
-    .button {
-      margin-top: 12px;
-    }
-
-    .button input[type="submit"] {
-      color: #fff;
-      font-size: 18px;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      background: #3e2093;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .button input[type="submit"]:hover {
-      background: #5029bc;
-    }
+        .contact-form-container .error {
+            text-align: center;
+            color: #e53e3e;
+            font-size: 1rem;
+            display: none;
+        }
 
         footer {
-        background-color: #333;
-        color: #fff;
-        padding: 20px;
-        font-size: 14px;
-    }
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            font-size: 14px;
+        }
 
-    .footer-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    .footer-column {
-        flex: 1;
-        min-width: 200px;
-    }
-
-    .footer-column h3 {
-        margin-bottom: 10px;
-        font-size: 18px;
-        border-bottom: 2px solid #f5d107;
-        display: inline-block;
-        padding-bottom: 5px;
-    }
-
-    .footer-column p {
-        margin-bottom: 10px;
-        line-height: 1.6;
-    }
-
-    .footer-column ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .footer-column ul li {
-        margin-bottom: 5px;
-    }
-
-    .footer-column ul li a {
-        text-decoration: none;
-        color: #f5d107;
-    }
-
-    .footer-column ul li a:hover {
-        color: #fff;
-    }
-
-    .social-links a {
-        text-decoration: none;
-        color: #f5d107;
-        margin: 5px 0;
-        display: inline-block;
-    }
-
-    .social-links a:hover {
-        color: #fff;
-    }
-
-    .social-links i {
-        margin-right: 8px;
-    }
-
-    .footer-bottom {
-        text-align: center;
-        margin-top: 20px;
-        border-top: 1px solid #555;
-        padding-top: 10px;
-    }
-
-    .footer-bottom a {
-        color: #f5d107;
-        text-decoration: none;
-    }
-
-    .footer-bottom a:hover {
-        color: #fff;
-    }
-
-    /* Responsive Footer */
-    @media (max-width: 768px) {
         .footer-container {
-            flex-direction: column;
-            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
         }
 
         .footer-column {
-            text-align: center;
+            flex: 1;
+            min-width: 200px;
         }
-    }
-    @media (max-width: 480px) {
-            .post-card {
-                width: calc(100% - 20px);
+
+        .footer-column h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            border-bottom: 2px solid #f5d107;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-column p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer-column ul li a {
+            text-decoration: none;
+            color: #f5d107;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #f5d107;
+            margin: 5px 0;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+        }
+
+        .social-links i {
+            margin-right: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid #555;
+            padding-top: 10px;
+        }
+
+        .footer-bottom a {
+            color: #f5d107;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .contact-form-container {
+                padding: 20px;
             }
 
-            footer .footer-container {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-column {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .footer-column ul {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form-container h1 {
+                font-size: 2rem;
+            }
+
+            .contact-form-container input,
+            .contact-form-container textarea,
+            .contact-form-container button {
+                padding: 10px;
+            }
+
+            .footer-container {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .footer-column {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            footer {
+                font-size: 12px;
+                padding: 15px;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Contact Form Section -->
-  <div class="container">
-    <div class="content">
-      <!-- Left Section: Contact Details -->
-      <div class="left-side">
-        <div class="address details">
-          <i class="fas fa-map-marker-alt"></i>
-          <div class="topic">Address</div>
-          <div class="text-one">Sarafarazganj</div>
-          <div class="text-two">Lucknow U.P</div>
-        </div>
-        <div class="phone details">
-          <i class="fas fa-phone-alt"></i>
-          <div class="topic">Phone</div>
-          <div class="text-one">+919369445575</div>
-          <div class="text-two">+919794877931</div>
-        </div>
-        <div class="email details">
-          <i class="fas fa-envelope"></i>
-          <div class="topic">Email</div>
-          <div class="text-one">zakihaide00@gmail.com</div>
-          <div class="text-two">zakihaider5575@gmail.com</div>
-        </div>
-      </div>
+    <div class="contact-form-container">
+        <h1>Contact Us</h1>
+        <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+            <!-- Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="38bc726e-803d-4171-af7f-d51998a88ff0">
 
-      <!-- Right Section: Contact Form -->
-      <div class="right-side">
-        <div class="topic-text">Send us a message</div>
-        <p>If you have any work or queries, feel free to send us a message here. We're happy to assist!</p>
-        <form action="https://api.web3forms.com/submit" method="POST">
-          <!-- Web3Forms API access key -->
-          <input type="hidden" name="access_key" value="38bc726e-803d-4171-af7f-d51998a88ff0">
+            <div class="input-field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your Name">
+            </div>
 
-          <!-- Form Inputs -->
-          <div class="input-box">
-            <input type="text" name="name" placeholder="Enter your name" required>
-          </div>
-          <div class="input-box">
-            <input type="email" name="email" placeholder="Enter your email" required>
-          </div>
-          <div class="input-box message-box">
-            <textarea name="message" placeholder="Enter your message" required></textarea>
-          </div>
+            <div class="input-field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
 
-          <!-- Honeypot Spam Protection -->
-          <input type="checkbox" name="botcheck" class="hidden" style="display: none;"> 
+            <div class="input-field">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" required placeholder="+1 (555) 1234-567">
+            </div>
 
-          <!-- Submit Button -->
-          <div class="button">
-            <input type="submit" value="Send Now">
-          </div>
+            <div class="input-field">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+
+            <!-- Success/Error message -->
+            <p class="result" id="result" style="display:none;">Your message has been sent successfully!</p>
+            <p class="error" id="error" style="display:none;">Oops! Something went wrong. Please try again.</p>
         </form>
-      </div>
     </div>
-  </div>>
 
     <footer class="footer">
-      <div class="footer-container">
-        <!-- Logo Section -->
-        <div class="footer-column footer-logo">
-          <img src="logo.png" alt="Downloadnotes Logo" class="footer-logo-img" />
-          <p>Your trusted partner for premium educational resources.</p>
+        <div class="footer-container">
+            <!-- Logo Section -->
+            <div class="footer-column footer-logo">
+                <img src="logo.png" alt="Downloadnotes Logo" class="footer-logo-img" />
+                <p>Your trusted partner for premium educational resources.</p>
+            </div>
+
+            <!-- About Section -->
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>
+                    Welcome to DevTechi, your trusted source for premium educational resources. We aim to make learning accessible and effective for everyone.
+                </p>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
         </div>
-    
-        <!-- About Section -->
-        <div class="footer-column">
-          <h3>About Us</h3>
-          <p>
-            Welcome to DevTechi, your trusted source for premium educational resources. We aim to make learning accessible and effective for everyone.
-          </p>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DevTechi. All Rights Reserved. <a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
         </div>
-    
-        <!-- Quick Links Section -->
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-            <li><a href="#blog">Blog</a></li>
-          </ul>
-        </div>
-    
-        <!-- Social Media Section -->
-        <div class="footer-column">
-          <h3>Follow Us</h3>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 DevTechi. All Rights Reserved | Designed with ❤️ by DevTechi Team.</p>
-      </div>
     </footer>
 </body>
 
