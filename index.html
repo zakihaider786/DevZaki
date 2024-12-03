@@ -239,50 +239,6 @@
         }
     }
 
-        #assistant-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-        }
-
-        #assistant-icon {
-            background-color: #ffbd0600;
-            border-radius: 10%;
-            padding: 0px;
-            cursor: pointer;
-        }
-
-        #assistant-icon img {
-            width: 55px;
-            height: auto;
-        }
-
-        #assistant-menu {
-            display: none;
-            position: absolute;
-            bottom: 60px;
-            right: 0;
-            background-color: #fad1d1;
-            border-radius: 8px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            width: 200px;
-        }
-
-        #assistant-menu ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        #assistant-menu ul li a {
-            text-decoration: none;
-            color: #141414;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
-        }
-
         /* Responsive Styles */
         @media (max-width: 768px) {
             .post-card {
@@ -481,34 +437,10 @@
       <p>&copy; 2024 DevTechi. All Rights Reserved | Designed with ❤️ by DevTechi Team.</p>
     </div>
   </footer>
-   
-<!-- Coffee Assistant -->
-<div id="assistant-container">
-    <div id="assistant-icon" onclick="toggleAssistantMenu()">
-        <img src="ai.png" alt="Coffee with Techi" />
-    </div>
-    <div id="assistant-menu">
-        
-        <ul>
-            <li><a href="#">DevOps Help</a></li>
-            <li><a href="#">Cloud Guidance</a></li>
-            <li><a href="#">Internship Opportunities</a></li>
-            <li><a href="#">Technical Blogs</a></li>
-            <li><a href="#">Support Us</a></li>
-        </ul>
-    </div>
-</div>
 
 <script>
     function toggleSearchBar() {
         document.getElementById('search-bar-container').classList.toggle('hidden');
-    }
-
-    function toggleAssistantMenu() {
-        document.getElementById('assistant-container').classList.toggle('show-menu');
-    }
-    function toggleSlider() {
-        document.getElementById('social-media-slider').classList.toggle('show-slider');
     }
 </script>
 
