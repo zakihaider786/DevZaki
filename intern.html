@@ -29,6 +29,69 @@
     a:hover {
       color: #0056b3;
     }
+    nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav ul li {
+            margin: 5px 10px;
+        }
+
+        nav ul li a, .title-btn {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover, .title-btn:hover {
+            background-color: #555;
+        }
+
+        nav .dropdown {
+            position: relative;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+            top: 40px;
+            left: 0;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        nav .dropdown-content a {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        nav .dropdown-content a:hover {
+            color: #f5d107;
+        }
+
+        #search-bar-container {
+            margin: 10px;
+            text-align: center;
+        }
+
+        #search-bar {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
     /* Header */
     .header {
@@ -270,10 +333,46 @@
   </style>
 </head>
 <body>
-  <header class="header">
-    <h1>Top Internship Platforms</h1>
-    <p>Your guide to landing your dream internship</p>
-  </header>
+  <!-- Header Section -->
+  <header>
+    <nav>
+        <ul>
+            <li><button class="title-btn">DevTechi</button></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li class="dropdown">
+                <a href="#">DevOps</a>
+                <div class="dropdown-content">
+                    <a href="#">Automation Tools</a>
+                    <a href="#">New Technology</a>
+                    <a href="#">Security</a>
+                    <a href="#">DevOps Top Questions</a>
+                    <a href="#">Interview Questions</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Cloud</a>
+                <div class="dropdown-content">
+                    <a href="#">Private Cloud</a>
+                    <a href="#">Public Cloud</a>
+                    <a href="#">Cloud Top Companies</a>
+                    <a href="#">Cloud-Based Projects</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Internship Sites</a>
+                <div class="dropdown-content">
+                    <a href="#">Geeks of Geeks</a>
+                    <a href="#">Internshala</a>
+                    <a href="#">Udemy</a>
+                    <a href="#">Unacademy</a>
+                </div>
+            </li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><button id="search-btn" onclick="toggleSearchBar()">🔍</button></li>
+        </ul>
+    </nav>
+</header>
 
   <section class="platforms-section">
     <!-- GeeksforGeeks -->
@@ -341,7 +440,7 @@
         <div class="footer-column">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#courses">Courses</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
