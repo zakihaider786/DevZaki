@@ -9,126 +9,158 @@
   <style>
     /* General Reset */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-    }
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-    /* Header Section */
-    .header {
-      background: linear-gradient(135deg, #ffffff, #f8f8f8);
-      padding: 20px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .header-title {
-      font-size: 24px;
-      font-weight: bold;
-      background-color: #012352;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 12px;
-      margin-right: 20px;
-      margin-bottom: 10px;
-    }
-
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .navbar ul li {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .navbar ul li a {
-      color: rgb(12, 12, 12);
-      text-decoration: none;
-      padding: 5px 10px;
-      transition: all 0.3s ease;
-    }
-
-    /* Blog Section */
+        /* Center the text */
     .blog-section {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 20px;
-    }
-
-    .blog-section h2 {
       text-align: center;
-      font-size: 36px;
-      margin-bottom: 30px;
-      color: #0072cc;
     }
 
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+    h2 {
+      position: relative;
+      display: inline-block;
+      font-size: 2rem;
+      margin: 20px 0;
     }
 
-    .blog-card {
-      background-color: #ffffff;
-      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #f5d107; /* Yellow underline color */
+      left: 50%; /* Start from the center */
+      bottom: -5px;
+      transition: width 0.3s ease-in-out;
+      transform: translateX(-50%); /* Center the underline */
     }
 
-    .blog-card img {
+    h2:hover::after {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
     }
 
-    .blog-card-content {
-      padding: 20px;
-    }
+    h2:hover {
+      color: #007bff; /* Change text color on hover if desired */
+    }  
 
-    .blog-card-content h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            background-color: #333;
+            padding: 10px;
+        }
 
-    .blog-card-content p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 15px;
-    }
+        nav ul li {
+            margin: 5px 10px;
+        }
 
-    .blog-card-content a {
-      text-decoration: none;
-      color: #0072cc;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+        nav ul li a, .title-btn {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
 
-    .blog-card-content a:hover {
-      color: #0056a3;
-    }
-    .load-more-container {
+        nav ul li a:hover, .title-btn:hover {
+            background-color: #555;
+        }
+
+        nav .dropdown {
+            position: relative;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+            top: 40px;
+            left: 0;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        nav .dropdown-content a {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        nav .dropdown-content a:hover {
+            color: #f5d107;
+        }
+
+        #search-bar-container {
+            margin: 10px;
+            text-align: center;
+        }
+
+        #search-bar {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .post-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .post-card {
+            width: calc(33.333% - 20px);
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .post-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .post-card h3 {
+            margin: 10px 0;
+        }
+
+        .post-card p {
+            margin: 10px;
+            color: #666;
+        }
+
+        .post-card a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .post-card a:hover {
+            background-color: #0056b3;
+        }
+
+        .load-more-container {
             text-align: center;
             margin: 20px;
         }
@@ -145,8 +177,8 @@
         .load-more-btn:hover {
             background-color: #0056b3;
         }
-    /* Footer */
-    footer {
+
+        footer {
         background-color: #333;
         color: #fff;
         padding: 20px;
@@ -227,61 +259,6 @@
         color: #fff;
     }
 
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-      }
-
-      .header-title {
-        margin-right: 0;
-        font-size: 20px;
-      }
-
-      .navbar ul {
-        gap: 15px;
-      }
-
-      .navbar ul li {
-        font-size: 16px;
-      }
-
-      .blog-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .footer-column h3 {
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header-title {
-        font-size: 18px;
-        padding: 8px 15px;
-      }
-
-      .navbar ul {
-        gap: 10px;
-      }
-
-      .navbar ul li {
-        font-size: 14px;
-      }
-
-      .blog-section h2 {
-        font-size: 28px;
-      }
-
-      .footer {
-        padding: 30px 10px;
-      }
-    }
     /* Responsive Footer */
     @media (max-width: 768px) {
         .footer-container {
@@ -293,6 +270,39 @@
             text-align: center;
         }
     }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .post-card {
+                width: calc(50% - 20px);
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                text-align: center;
+                margin: 5px 0;
+            }
+
+            #search-bar {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .post-card {
+                width: calc(100% - 20px);
+            }
+
+            footer .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+
   </style>
 </head>
 <body>
@@ -302,7 +312,7 @@
     <nav>
         <ul>
             <li><button class="title-btn">DevTechi</button></li>
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li class="dropdown">
                 <a href="#">DevOps</a>
@@ -340,32 +350,51 @@
 
   <!-- Blog Section -->
   <section class="blog-section">
-    <h2>Our Latest Blogs</h2>
+    <h2 class="animated-heading">Our Latest Blogs</h2>
     <div class="blog-grid">
-      <div class="blog-card">
-        <img src="https://via.placeholder.com/300x180" alt="Blog Image">
-        <div class="blog-card-content">
-          <h3>How to Learn Web Development</h3>
-          <p>Explore the step-by-step guide to becoming a successful web developer.</p>
-          <a href="#">Read More</a>
+      <div class="post-container">
+        <!-- Post Card 1 -->
+        <div class="post-card">
+            <img src="image1.jpg" alt="Post Image">
+            <h3 class="post-title">Post Title 1</h3>
+            <p class="post-description">Post description goes here...</p>
+            <a href="post1.html" class="read-more-btn">Read More</a>
         </div>
-      </div>
-      <div class="blog-card">
-        <img src="https://via.placeholder.com/300x180" alt="Blog Image">
-        <div class="blog-card-content">
-          <h3>Top 10 Programming Languages</h3>
-          <p>Discover the most popular programming languages to learn in 2024.</p>
-          <a href="#">Read More</a>
+        <!-- Post Card 2 -->
+        <div class="post-card">
+            <img src="image2.jpg" alt="Post Image">
+            <h3 class="post-title">Post Title 2</h3>
+            <p class="post-description">Post description goes here...</p>
+            <a href="post2.html" class="read-more-btn">Read More</a>
         </div>
-      </div>
-      <div class="blog-card">
-        <img src="https://via.placeholder.com/300x180" alt="Blog Image">
-        <div class="blog-card-content">
-          <h3>Understanding AI and Machine Learning</h3>
-          <p>Learn how artificial intelligence and machine learning are shaping the future.</p>
-          <a href="#">Read More</a>
+        <!-- Post Card 3 -->
+        <div class="post-card">
+            <img src="image3.jpg" alt="Post Image">
+            <h3 class="post-title">Post Title 3</h3>
+            <p class="post-description">Post description goes here...</p>
+            <a href="post3.html" class="read-more-btn">Read More</a>
         </div>
-      </div>
+        <!-- Post Card 4 -->
+        <div class="post-card">
+            <img src="image4.jpg" alt="Post Image">
+            <h3 class="post-title">Post Title 4</h3>
+            <p class="post-description">Post description goes here...</p>
+            <a href="post4.html" class="read-more-btn">Read More</a>
+        </div>
+        <!-- Post Card 5 -->
+        <div class="post-card">
+            <img src="image5.jpg" alt="Post Image">
+            <h3 class="post-title">Post Title 5</h3>
+            <p class="post-description">Post description goes here...</p>
+            <a href="post5.html" class="read-more-btn">Read More</a>
+        </div>
+        <!-- Post Card 6 -->
+        <div class="post-card">
+            <img src="image6.jpg" alt="Post Image">
+            <h3 class="post-title">Post Title 6</h3>
+            <p class="post-description">Post description goes here...</p>
+            <a href="post6.html" class="read-more-btn">Read More</a>
+        </div>
     </div>
   </section>
 
